@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TaskFlow — Time Blocking Planner</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:      #ffffff;
@@ -43,28 +44,28 @@
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',sans-serif; background:var(--bg); color:var(--text); height:100vh; overflow:hidden; display:flex; flex-direction:column; }
+  body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); height:100vh; overflow:hidden; display:flex; flex-direction:column; }
 
   /* HEADER */
   header { height:var(--header-h); background:var(--bg); border-bottom:1px solid var(--border2); display:flex; align-items:center; padding:0 20px; gap:16px; flex-shrink:0; z-index:50; }
-  .logo { font-size:15px; font-weight:800; text-transform:uppercase; letter-spacing:-0.3px; white-space:nowrap; }
+  .logo { font-size:15px; font-weight:800; text-transform:uppercase; letter-spacing:-0.3px; white-space:nowrap; font-family:'Playfair Display',serif; font-style:italic; text-transform:none; }
   .logo-sep { width:1px; height:20px; background:var(--border2); margin:0 4px; }
   .header-nav { display:flex; align-items:center; gap:2px; background:var(--bg2); border-radius:8px; padding:3px; border:1px solid var(--border2); }
-  .view-btn { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:600; padding:5px 13px; border-radius:6px; border:none; background:transparent; color:var(--text3); cursor:pointer; transition:all 0.15s; letter-spacing:0.6px; text-transform:uppercase; }
+  .view-btn { font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; padding:5px 13px; border-radius:6px; border:none; background:transparent; color:var(--text3); cursor:pointer; transition:all 0.15s; letter-spacing:0.6px; text-transform:uppercase; }
   .view-btn:hover { color:var(--text2); background:var(--bg3); }
   .view-btn.active { background:var(--text); color:var(--bg); }
   .header-date-nav { display:flex; align-items:center; gap:6px; margin-left:4px; }
   .date-nav-btn { width:28px; height:28px; border-radius:6px; border:1px solid var(--border2); background:transparent; color:var(--text2); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all 0.13s; }
   .date-nav-btn:hover { background:var(--bg2); color:var(--text); }
-  .header-date-label { font-family:'SF Mono',ui-monospace,monospace; font-size:11px; font-weight:500; color:var(--text2); min-width:150px; text-align:center; letter-spacing:0.3px; }
-  .today-btn { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:10px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:transparent; color:var(--text3); cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.8px; }
+  .header-date-label { font-family:'Poppins',sans-serif; font-size:11px; font-weight:500; color:var(--text2); min-width:150px; text-align:center; letter-spacing:0.3px; }
+  .today-btn { font-family:'Poppins',sans-serif; font-size:10px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:transparent; color:var(--text3); cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.8px; }
   .today-btn:hover { background:var(--bg2); color:var(--text); }
   .header-spacer { flex:1; }
   .notif-btn { width:34px; height:34px; border-radius:8px; border:1px solid var(--border2); background:transparent; color:var(--text3); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:15px; transition:all 0.13s; position:relative; }
   .notif-btn:hover { background:var(--bg2); color:var(--text); }
   .notif-dot { position:absolute; top:6px; right:6px; width:7px; height:7px; border-radius:50%; background:var(--due-today); border:2px solid var(--bg); display:none; }
   .notif-btn.has-alerts .notif-dot { display:block; }
-  .add-task-btn { display:flex; align-items:center; gap:6px; padding:7px 16px; background:var(--text); color:var(--bg); border:none; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-weight:700; font-size:12px; cursor:pointer; transition:all 0.15s; letter-spacing:0.4px; text-transform:uppercase; }
+  .add-task-btn { display:flex; align-items:center; gap:6px; padding:7px 16px; background:var(--text); color:var(--bg); border:none; border-radius:8px; font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; cursor:pointer; transition:all 0.15s; letter-spacing:0.4px; text-transform:uppercase; }
   .add-task-btn:hover { background:var(--accent2); transform:translateY(-1px); }
 
   /* REMINDER BANNER */
@@ -90,18 +91,18 @@
   /* SIDEBAR */
   aside { width:var(--sidebar-w); background:var(--bg2); border-right:1px solid var(--border2); display:flex; flex-direction:column; flex-shrink:0; overflow:hidden; }
   .sidebar-section { padding:16px 14px 8px; }
-  .sidebar-section-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--text3); margin-bottom:9px; padding:0 4px; }
+  .sidebar-section-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--text3); margin-bottom:9px; padding:0 4px; font-family:'Poppins',sans-serif; }
   .cat-list { display:flex; flex-direction:column; gap:1px; }
   .cat-item { display:flex; align-items:center; gap:9px; padding:7px 10px; border-radius:7px; cursor:pointer; transition:background 0.13s; font-size:12px; font-weight:500; color:var(--text2); }
   .cat-item:hover { background:var(--bg3); color:var(--text); }
   .cat-item.active { background:var(--bg3); color:var(--text); font-weight:700; }
   .cat-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-  .cat-count { margin-left:auto; font-size:9px; font-family:'SF Mono',ui-monospace,monospace; color:var(--text3); background:var(--bg4); padding:1px 6px; border-radius:20px; }
+  .cat-count { margin-left:auto; font-size:9px; font-family:'Poppins',sans-serif; color:var(--text3); background:var(--bg4); padding:1px 6px; border-radius:20px; }
   .sidebar-divider { height:1px; background:var(--border2); margin:6px 14px; }
   .progress-section { padding:10px 14px 8px; }
   .progress-label { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
   .progress-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--text3); }
-  .progress-pct { font-family:'SF Mono',ui-monospace,monospace; font-size:11px; font-weight:500; color:var(--text); }
+  .progress-pct { font-family:'Poppins',sans-serif; font-size:11px; font-weight:500; color:var(--text); }
   .progress-bar { height:2px; background:var(--bg4); border-radius:2px; overflow:hidden; }
   .progress-fill { height:100%; background:var(--text); border-radius:2px; transition:width 0.4s ease; }
   .task-list-scroll { flex:1; overflow-y:auto; padding:4px 14px 14px; }
@@ -121,7 +122,7 @@
   .task-cat-badge  { font-size:9px; padding:1px 6px; border-radius:20px; font-weight:600; text-transform:uppercase; letter-spacing:0.4px; }
   .task-diff-badge { font-size:9px; padding:1px 6px; border-radius:20px; font-weight:600; text-transform:uppercase; letter-spacing:0.4px; }
   .task-due-badge  { font-size:9px; padding:1px 6px; border-radius:20px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; }
-  .task-time-badge { font-size:9px; font-family:'SF Mono',ui-monospace,monospace; color:var(--text3); }
+  .task-time-badge { font-size:9px; font-family:'Poppins',sans-serif; color:var(--text3); }
   .task-delete { width:18px; height:18px; border-radius:5px; border:none; background:transparent; color:var(--text3); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:10px; opacity:0; transition:all 0.13s; flex-shrink:0; }
   .task-item:hover .task-delete { opacity:1; }
   .task-delete:hover { background:rgba(185,28,28,0.1); color:#b91c1c; }
@@ -148,14 +149,14 @@
   .cal-day-head.today .day-num { background:var(--text); color:var(--bg); }
   .cal-day-head.has-deadline .day-name { color:var(--due-today); }
   .day-name { font-size:9px; text-transform:uppercase; letter-spacing:1.2px; font-weight:700; color:var(--text3); margin-bottom:4px; }
-  .day-num { font-family:'SF Mono',ui-monospace,monospace; font-size:17px; font-weight:500; color:var(--text); width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto; transition:background 0.13s; }
+  .day-num { font-family:'Poppins',sans-serif; font-size:17px; font-weight:500; color:var(--text); width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto; transition:background 0.13s; }
   .cal-day-head:hover:not(.today) .day-num { background:var(--bg3); }
   .cal-grid-scroll { flex:1; overflow-y:auto; overflow-x:hidden; }
   .cal-grid-scroll::-webkit-scrollbar { width:4px; }
   .cal-grid-scroll::-webkit-scrollbar-thumb { background:var(--bg4); border-radius:4px; }
   .cal-grid { display:flex; position:relative; min-height:calc(var(--hour-h)*24); }
   .time-gutter { width:56px; flex-shrink:0; position:relative; }
-  .time-label { position:absolute; right:8px; font-size:9px; font-family:'SF Mono',ui-monospace,monospace; color:var(--text3); transform:translateY(-50%); white-space:nowrap; }
+  .time-label { position:absolute; right:8px; font-size:9px; font-family:'Poppins',sans-serif; color:var(--text3); transform:translateY(-50%); white-space:nowrap; }
   .cal-days-container { flex:1; display:flex; position:relative; }
   .cal-day-col { flex:1; border-left:1px solid var(--border); position:relative; cursor:pointer; }
   .hour-line { position:absolute; left:0; right:0; height:1px; background:var(--border); }
@@ -166,7 +167,7 @@
   .time-block { position:absolute; left:3px; right:3px; border-radius:5px; padding:4px 7px; cursor:pointer; overflow:hidden; transition:filter 0.13s,box-shadow 0.13s; z-index:2; border-left:2px solid transparent; min-height:22px; }
   .time-block:hover { filter:brightness(0.94); box-shadow:0 2px 10px rgba(0,0,0,0.12); z-index:10; }
   .time-block-title { font-size:10px; font-weight:700; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; letter-spacing:0.3px; }
-  .time-block-sub { font-size:9px; font-family:'SF Mono',ui-monospace,monospace; opacity:0.65; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .time-block-sub { font-size:9px; font-family:'Poppins',sans-serif; opacity:0.65; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .time-block-delete { position:absolute; top:3px; right:3px; width:13px; height:13px; border-radius:3px; background:rgba(0,0,0,0.12); border:none; color:rgba(0,0,0,0.5); cursor:pointer; font-size:8px; display:none; align-items:center; justify-content:center; }
   .time-block:hover .time-block-delete { display:flex; }
   .now-line { position:absolute; left:0; right:0; height:1.5px; background:#0a0a0a; z-index:5; pointer-events:none; }
@@ -184,13 +185,13 @@
   .month-cell.other-month { opacity:0.3; }
   .month-cell.has-deadline-today { border-top:2px solid var(--due-today); }
   .month-cell.has-deadline-tmrw  { border-top:2px solid var(--due-tmrw);  }
-  .month-cell-num { font-family:'SF Mono',ui-monospace,monospace; font-size:11px; font-weight:500; color:var(--text2); margin-bottom:4px; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+  .month-cell-num { font-family:'Poppins',sans-serif; font-size:11px; font-weight:500; color:var(--text2); margin-bottom:4px; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
   .month-cell.today .month-cell-num { background:var(--text); color:var(--bg); }
   .month-block { font-size:9px; padding:2px 5px; border-radius:3px; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:600; letter-spacing:0.2px; cursor:pointer; text-transform:uppercase; }
   .month-deadline-flag { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; padding:2px 5px; border-radius:3px; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; cursor:pointer; }
   .month-deadline-flag.today    { color:var(--due-today); background:var(--due-today-bg); }
   .month-deadline-flag.tomorrow { color:var(--due-tmrw);  background:var(--due-tmrw-bg);  }
-  .month-more { font-size:9px; color:var(--text3); margin-top:2px; font-family:'SF Mono',ui-monospace,monospace; }
+  .month-more { font-size:9px; color:var(--text3); margin-top:2px; font-family:'Poppins',sans-serif; }
 
   /* MODAL */
   .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; z-index:100; opacity:0; pointer-events:none; transition:opacity 0.18s; }
@@ -199,11 +200,11 @@
   .modal::-webkit-scrollbar { width:3px; }
   .modal::-webkit-scrollbar-thumb { background:var(--bg4); border-radius:3px; }
   .modal-overlay.open .modal { transform:translateY(0); }
-  .modal-title { font-size:18px; font-weight:800; color:var(--text); margin-bottom:20px; text-transform:uppercase; letter-spacing:-0.3px; }
+  .modal-title { font-size:18px; font-weight:600; color:var(--text); margin-bottom:20px; font-family:'Playfair Display',serif; font-style:italic; letter-spacing:-0.3px; }
   .form-group { margin-bottom:14px; }
   .form-label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--text3); margin-bottom:6px; display:block; }
   .form-label .note { color:var(--text3); font-weight:400; text-transform:none; letter-spacing:0; font-size:9px; }
-  .form-input { width:100%; background:var(--bg2); border:1px solid var(--border2); border-radius:7px; padding:9px 11px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif; font-size:13px; color:var(--text); outline:none; transition:border-color 0.13s; }
+  .form-input { width:100%; background:var(--bg2); border:1px solid var(--border2); border-radius:7px; padding:9px 11px; font-family:'Poppins',sans-serif; font-size:13px; color:var(--text); outline:none; transition:border-color 0.13s; }
   .form-input:focus { border-color:var(--text); }
   .form-input option { background:var(--bg); }
   textarea.form-input { resize:vertical; min-height:68px; font-size:12px; line-height:1.5; }
@@ -214,21 +215,21 @@
   .form-input.deadline-input { border-color:rgba(192,57,43,0.2); }
   .form-input.deadline-input:focus { border-color:var(--due-today); }
   .cat-selector { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-  .cat-option { display:flex; align-items:center; gap:6px; padding:7px 9px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; transition:all 0.13s; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:600; color:var(--text2); text-transform:uppercase; letter-spacing:0.3px; }
+  .cat-option { display:flex; align-items:center; gap:6px; padding:7px 9px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; transition:all 0.13s; font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; color:var(--text2); text-transform:uppercase; letter-spacing:0.3px; }
   .cat-option:hover { background:var(--bg2); color:var(--text); }
   .cat-option.selected { border-color:var(--text); background:var(--text); color:var(--bg); }
   .cat-option.selected .cat-option-dot { background:var(--bg) !important; }
   .cat-option-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
   .diff-selector { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-  .diff-option { display:flex; align-items:center; justify-content:center; padding:7px 9px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; transition:all 0.13s; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:0.5px; }
+  .diff-option { display:flex; align-items:center; justify-content:center; padding:7px 9px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; transition:all 0.13s; font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:0.5px; }
   .diff-option:hover { background:var(--bg2); color:var(--text); }
   .diff-option[data-diff="easy"].selected   { background:var(--diff-easy-bg); border-color:var(--diff-easy); color:var(--diff-easy); }
   .diff-option[data-diff="medium"].selected { background:var(--diff-med-bg);  border-color:var(--diff-med);  color:var(--diff-med);  }
   .diff-option[data-diff="hard"].selected   { background:var(--diff-hard-bg); border-color:var(--diff-hard); color:var(--diff-hard); }
   .modal-actions { display:flex; gap:8px; margin-top:20px; }
-  .btn-cancel { flex:1; padding:10px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text2); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-cancel { flex:1; padding:10px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text2); font-family:'Poppins',sans-serif; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
   .btn-cancel:hover { background:var(--bg2); color:var(--text); }
-  .btn-save { flex:2; padding:10px; border-radius:7px; border:none; background:var(--text); color:var(--bg); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .btn-save { flex:2; padding:10px; border-radius:7px; border:none; background:var(--text); color:var(--bg); font-family:'Poppins',sans-serif; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
   .btn-save:hover { background:var(--accent2); }
 
   /* DETAIL */
@@ -239,7 +240,7 @@
   .detail-panel::-webkit-scrollbar-thumb { background:var(--bg4); border-radius:3px; }
   .detail-overlay.open .detail-panel { transform:scale(1); }
   .detail-cat-line { display:flex; align-items:center; gap:7px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text3); margin-bottom:10px; }
-  .detail-title { font-size:17px; font-weight:800; text-transform:uppercase; letter-spacing:-0.3px; line-height:1.3; margin-bottom:8px; }
+  .detail-title { font-size:17px; font-weight:600; font-family:'Playfair Display',serif; font-style:italic; letter-spacing:-0.2px; line-height:1.3; margin-bottom:8px; }
   .detail-desc { font-size:12px; color:var(--text2); line-height:1.6; margin-bottom:14px; }
   .detail-deadline-box { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:7px; margin-bottom:14px; }
   .detail-deadline-box.today    { background:var(--due-today-bg); }
@@ -251,9 +252,9 @@
   .detail-deadline-box.tomorrow .detail-dl-label { color:var(--due-tmrw);  }
   .detail-deadline-box.future   .detail-dl-label { color:var(--due-future);}
   .detail-deadline-box.overdue  .detail-dl-label { color:var(--diff-hard); }
-  .detail-dl-date { font-family:'SF Mono',ui-monospace,monospace; font-size:11px; color:var(--text2); }
+  .detail-dl-date { font-family:'Poppins',sans-serif; font-size:11px; color:var(--text2); }
   .detail-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
-  .detail-chip { font-size:10px; padding:3px 9px; border-radius:20px; border:1px solid var(--border2); color:var(--text2); font-weight:600; font-family:'SF Mono',ui-monospace,monospace; text-transform:uppercase; letter-spacing:0.3px; }
+  .detail-chip { font-size:10px; padding:3px 9px; border-radius:20px; border:1px solid var(--border2); color:var(--text2); font-weight:600; font-family:'Poppins',sans-serif; text-transform:uppercase; letter-spacing:0.3px; }
   .detail-subtasks { margin-bottom:16px; }
   .detail-subtask-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--text3); margin-bottom:8px; }
   .detail-subtask-item { display:flex; align-items:center; gap:9px; padding:6px 0; border-bottom:1px solid var(--border); }
@@ -264,17 +265,17 @@
   .detail-subtask-label { font-size:12px; font-weight:500; color:var(--text); }
   .detail-subtask-label.done { text-decoration:line-through; color:var(--text3); }
   .detail-actions { display:flex; gap:8px; flex-wrap:wrap; }
-  .detail-toggle { flex:2; min-width:100px; padding:9px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .detail-toggle { flex:2; min-width:100px; padding:9px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text); font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
   .detail-toggle:hover { background:var(--bg2); }
-  .detail-archive { flex:1; min-width:80px; padding:9px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text2); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .detail-archive { flex:1; min-width:80px; padding:9px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text2); font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
   .detail-archive:hover { background:var(--bg2); color:var(--text); }
-  .detail-delete { flex:1; min-width:70px; padding:9px; border-radius:7px; border:1px solid rgba(185,28,28,0.2); background:transparent; color:#b91c1c; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .detail-delete { flex:1; min-width:70px; padding:9px; border-radius:7px; border:1px solid rgba(185,28,28,0.2); background:transparent; color:#b91c1c; font-family:'Poppins',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
   .detail-delete:hover { background:rgba(185,28,28,0.08); }
   .detail-close { position:absolute; top:18px; right:18px; width:26px; height:26px; border-radius:6px; border:1px solid var(--border2); background:transparent; color:var(--text2); cursor:pointer; font-size:12px; display:flex; align-items:center; justify-content:center; transition:all 0.13s; }
   .detail-close:hover { background:var(--bg2); color:var(--text); }
 
   /* TOAST */
-  .toast { position:fixed; bottom:20px; right:20px; background:var(--text); color:var(--bg); border-radius:8px; padding:10px 16px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:600; z-index:200; transform:translateY(10px); opacity:0; transition:all 0.2s; pointer-events:none; text-transform:uppercase; letter-spacing:0.5px; box-shadow:0 6px 24px rgba(0,0,0,0.15); }
+  .toast { position:fixed; bottom:20px; right:20px; background:var(--text); color:var(--bg); border-radius:8px; padding:10px 16px; font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; z-index:200; transform:translateY(10px); opacity:0; transition:all 0.2s; pointer-events:none; text-transform:uppercase; letter-spacing:0.5px; box-shadow:0 6px 24px rgba(0,0,0,0.15); }
   .toast.show { transform:translateY(0); opacity:1; }
 
   /* ARCHIVE */
@@ -286,23 +287,33 @@
   .subtask-row input { flex:1; }
   .subtask-remove { width:28px; height:28px; border-radius:6px; border:1px solid var(--border2); background:transparent; color:var(--text3); cursor:pointer; font-size:12px; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.13s; }
   .subtask-remove:hover { background:rgba(185,28,28,0.08); color:#b91c1c; border-color:rgba(185,28,28,0.3); }
-  .add-subtask-btn { width:100%; padding:7px; border-radius:6px; border:1px dashed var(--border2); background:transparent; color:var(--text3); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; transition:all 0.13s; }
+  .add-subtask-btn { width:100%; padding:7px; border-radius:6px; border:1px dashed var(--border2); background:transparent; color:var(--text3); font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; transition:all 0.13s; }
   .add-subtask-btn:hover { border-color:var(--text2); color:var(--text2); }
 
-  /* POMODORO */
-  .pom-widget { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--bg); border:1px solid var(--border2); border-radius:14px; padding:14px 20px; display:none; align-items:center; gap:14px; box-shadow:0 8px 40px rgba(0,0,0,0.14); z-index:150; }
-  .pom-mode { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--text3); min-width:60px; }
-  .pom-time { font-family:'SF Mono',ui-monospace,monospace; font-size:24px; font-weight:500; color:var(--text); letter-spacing:2px; min-width:70px; text-align:center; }
-  .pom-cycles { font-family:'SF Mono',ui-monospace,monospace; font-size:9px; color:var(--text3); min-width:30px; }
-  .pom-btn { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; padding:6px 14px; border-radius:6px; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
-  .pom-start { border:none; background:var(--text); color:var(--bg); }
+  /* POMODORO OVERLAY */
+  .pom-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); display:none; align-items:center; justify-content:center; z-index:180; }
+  .pom-overlay.open { display:flex; }
+  .pom-card { background:var(--bg); border:1px solid var(--border2); border-radius:20px; padding:48px 56px; display:flex; flex-direction:column; align-items:center; gap:0; box-shadow:0 24px 80px rgba(0,0,0,0.13); min-width:340px; position:relative; }
+  .pom-close { position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:7px; border:1px solid var(--border2); background:transparent; color:var(--text3); cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; transition:all 0.13s; font-family:'Poppins',sans-serif; }
+  .pom-close:hover { background:var(--bg2); color:var(--text); }
+  .pom-mode { font-family:'Poppins',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--text3); margin-bottom:16px; }
+  .pom-time { font-family:'Poppins',sans-serif; font-size:72px; font-weight:300; color:var(--text); letter-spacing:-3px; line-height:1; margin-bottom:8px; }
+  .pom-cycles { font-family:'Poppins',sans-serif; font-size:11px; color:var(--text3); margin-bottom:36px; letter-spacing:0.3px; }
+  .pom-actions { display:flex; gap:10px; align-items:center; }
+  .pom-btn { font-family:'Poppins',sans-serif; font-size:12px; font-weight:600; padding:10px 24px; border-radius:8px; cursor:pointer; transition:all 0.13s; text-transform:uppercase; letter-spacing:0.5px; }
+  .pom-start { border:none; background:var(--text); color:var(--bg); min-width:110px; }
   .pom-start:hover { background:var(--accent2); }
   .pom-reset { border:1px solid var(--border2); background:transparent; color:var(--text2); }
   .pom-reset:hover { background:var(--bg2); color:var(--text); }
-  .pom-close { border:none; background:transparent; color:var(--text3); font-size:13px; padding:4px 6px; cursor:pointer; }
-  .pom-close:hover { color:var(--text); }
-  .pom-open-btn { position:fixed; bottom:24px; left:24px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif; font-size:11px; font-weight:700; padding:8px 14px; border-radius:8px; border:1px solid var(--border2); background:var(--bg); color:var(--text2); cursor:pointer; text-transform:uppercase; letter-spacing:0.5px; box-shadow:0 4px 16px rgba(0,0,0,0.08); z-index:140; transition:all 0.13s; }
+  .pom-skip { border:1px solid var(--border2); background:transparent; color:var(--text3); font-size:11px; padding:10px 14px; }
+  .pom-skip:hover { background:var(--bg2); color:var(--text2); }
+  .pom-progress { width:100%; height:2px; background:var(--bg4); border-radius:2px; margin-bottom:36px; overflow:hidden; }
+  .pom-progress-fill { height:100%; background:var(--text); border-radius:2px; transition:width 1s linear; }
+  .pom-open-btn { position:fixed; bottom:24px; left:24px; font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; padding:8px 14px; border-radius:8px; border:1px solid var(--border2); background:var(--bg); color:var(--text2); cursor:pointer; text-transform:uppercase; letter-spacing:0.5px; box-shadow:0 4px 16px rgba(0,0,0,0.08); z-index:140; transition:all 0.13s; display:flex; align-items:center; gap:6px; }
   .pom-open-btn:hover { background:var(--bg2); color:var(--text); }
+  .pom-running-dot { width:6px; height:6px; border-radius:50%; background:var(--diff-easy); display:none; animation:pomPulse 1.2s ease-in-out infinite; }
+  .pom-open-btn.running .pom-running-dot { display:block; }
+  @keyframes pomPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
 
   ::-webkit-scrollbar { width:4px; height:4px; }
   ::-webkit-scrollbar-track { background:transparent; }
@@ -463,6 +474,26 @@
       <button class="detail-toggle" id="detailToggle"></button>
       <button class="detail-archive" id="detailArchive"></button>
       <button class="detail-delete" id="detailDelete">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- POMODORO -->
+<button class="pom-open-btn" id="pomOpenBtn">
+  <span>🍅 Pomodoro</span>
+  <span class="pom-running-dot"></span>
+</button>
+<div class="pom-overlay" id="pomOverlay">
+  <div class="pom-card">
+    <button class="pom-close" id="pomClose" title="Close (timer keeps running)">✕</button>
+    <div class="pom-mode" id="pomMode">Focus</div>
+    <div class="pom-time" id="pomTime">50:00</div>
+    <div class="pom-progress"><div class="pom-progress-fill" id="pomProgressFill" style="width:100%"></div></div>
+    <div class="pom-cycles" id="pomCycles">0 sessions completed</div>
+    <div class="pom-actions">
+      <button class="pom-btn pom-reset" id="pomReset">↺ Reset</button>
+      <button class="pom-btn pom-start" id="pomToggle">Start</button>
+      <button class="pom-btn pom-skip" id="pomSkip">Skip →</button>
     </div>
   </div>
 </div>
@@ -875,33 +906,98 @@ function addSubtaskField(){
 document.getElementById('addSubtaskBtn').addEventListener('click',addSubtaskField);
 
 // ── POMODORO ──────────────────────────────────
-const POM={Focus:25*60,'Short Break':5*60,'Long Break':15*60};
-let pom={running:false,secs:25*60,interval:null,mode:'Focus',cycles:0};
+const POM={'Focus':50*60,'Short Break':10*60,'Long Break':30*60};
+let pom={running:false,secs:50*60,totalSecs:50*60,interval:null,mode:'Focus',cycles:0};
+
+function pomSound(type){
+  try {
+    const ctx=new(window.AudioContext||window.webkitAudioContext)();
+    if(type==='focus'){
+      // Soft chime - two ascending tones (break is done, back to focus)
+      [523,659,784].forEach((freq,i)=>{
+        const o=ctx.createOscillator(), g=ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.type='sine'; o.frequency.value=freq;
+        const t=ctx.currentTime+i*0.18;
+        g.gain.setValueAtTime(0,t);
+        g.gain.linearRampToValueAtTime(0.18,t+0.05);
+        g.gain.exponentialRampToValueAtTime(0.001,t+0.55);
+        o.start(t); o.stop(t+0.6);
+      });
+    } else {
+      // Deeper two-tone bell (focus session done, break starting)
+      [392,330].forEach((freq,i)=>{
+        const o=ctx.createOscillator(), g=ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.type='sine'; o.frequency.value=freq;
+        const t=ctx.currentTime+i*0.3;
+        g.gain.setValueAtTime(0,t);
+        g.gain.linearRampToValueAtTime(0.22,t+0.04);
+        g.gain.exponentialRampToValueAtTime(0.001,t+0.9);
+        o.start(t); o.stop(t+1.0);
+      });
+    }
+  } catch(e){}
+}
+
 function pomUI(){
   const m=String(Math.floor(pom.secs/60)).padStart(2,'0'), s=String(pom.secs%60).padStart(2,'0');
   document.getElementById('pomTime').textContent=`${m}:${s}`;
   document.getElementById('pomMode').textContent=pom.mode;
   document.getElementById('pomToggle').textContent=pom.running?'Pause':'Start';
-  document.getElementById('pomCycles').textContent=`${pom.cycles}🍅`;
+  document.getElementById('pomCycles').textContent=`${pom.cycles} session${pom.cycles!==1?'s':''} completed`;
+  const pct=(pom.secs/pom.totalSecs)*100;
+  document.getElementById('pomProgressFill').style.width=pct+'%';
+  const btn=document.getElementById('pomOpenBtn');
+  btn.classList.toggle('running', pom.running);
 }
+
+function pomAdvance(){
+  if(pom.mode==='Focus'){
+    pom.cycles++;
+    const next=pom.cycles%4===0?'Long Break':'Short Break';
+    pom.mode=next; pom.secs=POM[next]; pom.totalSecs=POM[next];
+    pomSound('break');
+    showToast(`Focus done! ${next} — ${next==='Long Break'?'30':'10'} min`);
+    if(Notification.permission==='granted') new Notification('TaskFlow — Break!',{body:`${next} · ${next==='Long Break'?'30':'10'} minutes`});
+  } else {
+    pom.mode='Focus'; pom.secs=POM['Focus']; pom.totalSecs=POM['Focus'];
+    pomSound('focus');
+    showToast('Break over — back to Focus!');
+    if(Notification.permission==='granted') new Notification('TaskFlow — Focus time!',{body:'50 minute session starting'});
+  }
+}
+
 function pomTick(){
-  if(pom.secs<=0){
-    clearInterval(pom.interval); pom.running=false; pom.cycles++;
-    const next=pom.mode==='Focus'?(pom.cycles%4===0?'Long Break':'Short Break'):'Focus';
-    pom.mode=next; pom.secs=POM[next];
-    showToast(`${next} time!`);
-    if(Notification.permission==='granted') new Notification('TaskFlow Pomodoro',{body:`${next} time!`});
-  } else pom.secs--;
+  if(pom.secs<=0){ clearInterval(pom.interval); pom.running=false; pomAdvance(); }
+  else { pom.secs--; }
   pomUI();
 }
-document.getElementById('pomOpenBtn').addEventListener('click',()=>{ document.getElementById('pomWidget').style.display='flex'; });
-document.getElementById('pomClose').addEventListener('click',()=>{ clearInterval(pom.interval); pom.running=false; document.getElementById('pomWidget').style.display='none'; pomUI(); });
-document.getElementById('pomToggle').addEventListener('click',()=>{
-  if(pom.running){clearInterval(pom.interval);pom.running=false;}
-  else{pom.interval=setInterval(pomTick,1000);pom.running=true;}
+
+document.getElementById('pomOpenBtn').addEventListener('click',()=>{
+  document.getElementById('pomOverlay').classList.add('open');
   pomUI();
 });
-document.getElementById('pomReset').addEventListener('click',()=>{ clearInterval(pom.interval); pom.running=false; pom.secs=POM[pom.mode]; pomUI(); });
+// Close just hides — timer keeps running
+document.getElementById('pomClose').addEventListener('click',()=>{
+  document.getElementById('pomOverlay').classList.remove('open');
+});
+document.getElementById('pomOverlay').addEventListener('click',e=>{
+  if(e.target===e.currentTarget) document.getElementById('pomOverlay').classList.remove('open');
+});
+document.getElementById('pomToggle').addEventListener('click',()=>{
+  if(pom.running){ clearInterval(pom.interval); pom.running=false; }
+  else { pom.interval=setInterval(pomTick,1000); pom.running=true; }
+  pomUI();
+});
+document.getElementById('pomReset').addEventListener('click',()=>{
+  clearInterval(pom.interval); pom.running=false;
+  pom.secs=POM[pom.mode]; pom.totalSecs=POM[pom.mode]; pomUI();
+});
+document.getElementById('pomSkip').addEventListener('click',()=>{
+  clearInterval(pom.interval); pom.running=false;
+  pom.secs=0; pomAdvance(); pomUI();
+});
 pomUI();
 
 // ── INIT ───────────────────────────────────────
@@ -910,16 +1006,5 @@ render();
 if(Notification.permission==='granted') setTimeout(fireNotifs,1000);
 setInterval(()=>{ if(state.view!=='month'){const days=getDays();if(days.some(d=>sameDay(d,new Date())))render();}},60000);
 </script>
-<!-- POMODORO -->
-<button class="pom-open-btn" id="pomOpenBtn">🍅 Pomodoro</button>
-<div class="pom-widget" id="pomWidget">
-  <div class="pom-mode" id="pomMode">Focus</div>
-  <div class="pom-time" id="pomTime">25:00</div>
-  <div class="pom-cycles" id="pomCycles">0🍅</div>
-  <button class="pom-btn pom-start" id="pomToggle">Start</button>
-  <button class="pom-btn pom-reset" id="pomReset">↺</button>
-  <button class="pom-close" id="pomClose">✕</button>
-</div>
-
 </body>
 </html>
